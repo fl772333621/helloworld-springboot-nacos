@@ -1,0 +1,10 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: consumer-service
+
+nacos:
+  discovery:
+    server-addr: http://127.0.0.1:8848
