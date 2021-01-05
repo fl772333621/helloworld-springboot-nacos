@@ -1,4 +1,4 @@
-# helloworld nacos
+# helloworld springboot nacos
 
 > SpringBoot 集成 nacos 样例项目
 
