@@ -1,6 +1,7 @@
 # helloworld springboot nacos
 
-> SpringBoot 集成 nacos 样例项目
+> - SpringBoot 集成 nacos 样例项目。
+> - Docker模式部署项目，转移至 [README-docker.md](README-docker.md)
 
 ## 一、下载nacos软件包
 

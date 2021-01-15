@@ -31,12 +31,15 @@ public class NacosConsumerApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // 根据服务名从注册中心获取一个健康的服务实例
-        Instance instance = namingService.selectOneHealthyInstance("provider-service");
-        // 这里只是为了方便才新建RestTemplate实例
-        RestTemplate template = new RestTemplate();
-        String url = String.format("http://%s:%d/hello/consumer", instance.getIp(), instance.getPort());
-        String result = template.getForObject(url, String.class);
-        LOGGER.warn(String.format("请求URL:%s,响应结果:%s%n", url, result));
+        while(true) {
+            // 根据服务名从注册中心获取一个健康的服务实例
+            Instance instance = namingService.selectOneHealthyInstance("provider-service");
+            // 这里只是为了方便才新建RestTemplate实例
+            RestTemplate template = new RestTemplate();
+            String url = String.format("http://%s:%d/hello/consumer", instance.getIp(), instance.getPort());
+            String result = template.getForObject(url, String.class);
+            LOGGER.warn(String.format("请求URL:%s,响应结果:%s%n", url, result));
+            Thread.sleep(1000);
+        }
     }
 }
